@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Master Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <button class="new-chat" onclick="location.reload()">
+                <i class="fas fa-plus"></i> New Chat
+            </button>
+            <div class="search-box">
+                <input type="text" placeholder="Search chats...">
+            </div>
+            <div class="history-list" id="historyList">
+                <!-- Chats will load here -->
+            </div>
+            <div class="sidebar-footer">
+                <button onclick="toggleTheme()"><i class="fas fa-adjust"></i> Change Theme</button>
+                <button><i class="fas fa-cog"></i> Settings</button>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="main-chat">
+            <header>
+                <i class="fas fa-bars menu-toggle" onclick="toggleSidebar()"></i>
+                <h3>Gemini 3.1 Pro AI</h3>
+                <i class="fas fa-share-alt"></i>
+            </header>
+
+            <div class="chat-display" id="chatDisplay">
+                <div class="ai-msg">नमस्ते! मैं आपका AI सहायक हूँ। मैं कोडिंग, ब्लॉगिंग, ट्रांसलेशन और इमेज एनालिसिस में आपकी मदद कर सकता हूँ।</div>
+            </div>
+
+            <div class="typing-loader" id="loader">AI सोच रहा है...</div>
+
+            <div class="input-area">
+                <div class="tools">
+                    <label for="file"><i class="fas fa-paperclip"></i></label>
+                    <input type="file" id="file" hidden onchange="handleFile()">
+                    <i class="fas fa-microphone" id="voiceBtn" onclick="toggleVoice()"></i>
+                </div>
+                <div class="input-box">
+                    <textarea id="userInput" placeholder="यहाँ संदेश लिखें..." rows="1" onkeypress="checkEnter(event)"></textarea>
+                    <button id="sendBtn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
